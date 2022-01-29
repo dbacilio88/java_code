@@ -1,4 +1,4 @@
-package bacsystem.files;
+package bacsystem.com.archivos.files;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,13 +9,15 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import bacsystem.com.archivos.Constantes;
+
 public class Files {
 
     private static final Logger LOGGER = Logger.getLogger(Files.class.getName());
 
     public static void main(String[] args) {
 
-        File file = new File("/home/christian/Documentos/repositories/java_code/data/application.properties");
+        File file = new File("/home/christian/Documents/repositories/cursos/java/java_code/data/application.properties");
 
         Properties properties = new Properties();
         InputStream inStream = null;
@@ -41,11 +43,11 @@ public class Files {
 
         String result = null;
 
-        List<String> lista = Arrays.asList(values.split("\\|"));
+        List<String> lista = Arrays.asList(values.split(Constantes.PARAMETRO_PALOTE));
 
         for (String object : lista) {
 
-            List<String> value = Arrays.asList(object.split("\\,"));
+            List<String> value = Arrays.asList(object.split(Constantes.PARAMETRO_COMA));
 
             if (value.get(0).equalsIgnoreCase(encontrar)) {
                 result = value.get(1);
